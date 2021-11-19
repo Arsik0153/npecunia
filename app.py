@@ -31,15 +31,6 @@ class Users(db.Model):
     password = db.Column(db.String(50))
 
 
-class Books(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    name = db.Column(db.String(50), unique=True, nullable=False)
-    Author = db.Column(db.String(50), unique=True, nullable=False)
-    Publisher = db.Column(db.String(50), nullable=False)
-    book_prize = db.Column(db.Integer)
-
-
 async def scrap(query):
     scraper = Scraper()
     results = await scraper.scrap(query, 3)
@@ -167,52 +158,6 @@ def get_all_users():
         result.append(user_data)
 
     return jsonify({'users': result})
-
-
-@app.route('/book', methods=['POST'])
-@token_required
-def create_book(current_user):
-
-    data = request.get_json()
-
-    new_books = Books(name=data['name'], Author=data['Author'], Publisher=data['Publisher'],
-                      book_prize=data['book_prize'], user_id=current_user.id)
-    db.session.add(new_books)
-    db.session.commit()
-
-    return jsonify({'message': 'new books created'})
-
-
-@app.route('/books', methods=['GET'])
-@token_required
-def get_books(current_user):
-
-    books = Books.query.filter_by(user_id=current_user.id).all()
-
-    output = []
-    for book in books:
-        book_data = {}
-        book_data['id'] = book.id
-        book_data['name'] = book.name
-        book_data['Author'] = book.Author
-        book_data['Publisher'] = book.Publisher
-        book_data['book_prize'] = book.book_prize
-        output.append(book_data)
-
-    return jsonify({'list_of_books': output})
-
-
-@app.route('/books/<book_id>', methods=['DELETE'])
-@token_required
-def delete_book(current_user, book_id):
-    book = Books.query.filter_by(id=book_id, user_id=current_user.id).first()
-    if not book:
-        return jsonify({'message': 'book does not exist'})
-
-    db.session.delete(book)
-    db.session.commit()
-
-    return jsonify({'message': 'Book deleted'})
 
 
 @app.before_first_request
