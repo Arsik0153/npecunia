@@ -62,11 +62,7 @@ def token_required(f):
 
 @app.route('/', methods=['GET'])
 def index():
-    new_user = Users(public_id="12345132412",
-                     email="John", password="asdfaksdfsdf")
-    db.session.add(new_user)
-    db.session.commit()
-    return render_template('index.html', name="Mike")
+    return '<h1>Start page</h1>'
 
 
 @app.route('/register', methods=['POST'])
