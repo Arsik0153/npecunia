@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/
+		css/bootstrap.min.css">
+	<link rel="icon" href="{{ url_for('static',filename='img/coin.png') }}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">	
+		</script>
+	</script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+	<style type="text/css">
+		body {
+			background: url("{{ url_for('static',filename='img/back2.jpeg') }}");
+			min-height: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+		}
+		</style>
+	<title>Sign In</title>
+</head>
+<body>
+	<div class="main">
+		<div class="cont fadeIn">
+	 	<h1 align="center" class="text-uppercase">Welcome back to NPecunia</h1>
+	 	<h5 align="center">Please, sign in into your account</h5>
+	 	<form class="login" method="POST" action="/login">
+		  <div class="mb-3 forms">
+		    <label for="InputEmail" class="form-label">Email</label>
+		    <input name="email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required>
+		  </div>
+		  <div class="mb-3 forms pass">
+		    <label for="InputPassword" class="form-label">Password</label>
+		    <input name="password" type="password" class="form-control" id="InputPassword" required>
+		    <a href="#" class="password-control"></a>
+		  </div>
+		  <button type="submit" class="btn form-control">Sign In</button>
+		</form>
+	 	<p align="center" class="forgotpassword"><span>Don't have an account?</span> <a href="/register" >Create an account</a> </p>
+	 	</div>
+	 </div>
+	 	<footer class="card-footer">
+	 		<div class="footer1">
+	 			<div class="proj">
+	 				<h2 class="text-uppercase">Project</h2>
+	 				<span>Sample text</span>
+	 			</div>		
+	 			<div class="help">
+	 				<h3 class="text-uppercase">Help</h3>
+	 				<span>
+		 				<a href="#"><span>Privacy Policy</span></a>
+		 				<a href="#"><span>Terms and conditions</span></a>
+	 				</span>
+	 			</div>
+	 		</div>
+	 		<div class="copyright" align="center">
+	 			<span>Copyright © 2021. Your company name  All rights reserved</span>
+	 		</div>
+	 	</footer>
+	 	<script type="text/javascript">
+	 		$('body').on('click', '.password-control', function(){
+				if ($('#InputPassword').attr('type') == 'password'){
+				
+					$('#InputPassword').attr('type', 'text');
+				} else {
+				
+					$('#InputPassword').attr('type', 'password');
+				}
+				return false;
+			});
+	 	</script>
+</body>
+</html>

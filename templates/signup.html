@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/
+		css/bootstrap.min.css">
+	<link rel="icon" href="{{ url_for('static',filename='img/coin.png') }}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">	
+		</script>
+	<script src="https://kit.fontawesome.com/883d5d0999.js" crossorigin="anonymous"></script>	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+	<style type="text/css">
+		.cont {
+			padding: 5% 12%;
+         }
+		.password-control {
+			background: url("{{ url_for('static',filename='img/view.svg') }}") 0 0 no-repeat;
+		}
+	</style>
+	<title>Sign Up</title>
+</head>
+<body>
+	<div class="main">
+		<div class="cont fadeIn">
+	 	<h1 align="center" class="text-uppercase">Welcome to NPecunia</h1>
+	 	<h5 align="center">Create an account</h5>
+	 	<form class="login" method="POST" action="/register">
+		  <div class="mb-3 forms">
+		    <label for="NewInputEmail" class="form-label">Email</label>
+		    <input name="email" type="email" class="form-control" id="NewInputEmail" aria-describedby="emailHelp" required>
+		  </div>
+		  <div class="mb-3 forms pass">
+		    <label for="NewInputPassword1" class="form-label">Password</label>
+		    <input name="password" type="password" class="form-control" id="NewInputPassword1" required>
+		    <a href="#" class="password-control p-c1"></a>
+		  </div>
+		  <div class="mb-3 forms pass">
+		    <label for="NewInputPassword2" class="form-label">Confirm password</label>
+		    <input name="confpassword" type="password" class="form-control" id="NewInputPassword2" required>
+		    <a href="#" class="password-control p-c2"></a>
+		  </div>
+		  <button type="submit" class="btn form-control">Sign up</button>
+		</form>
+	 	<p align="center" class="alreadyhave"><span>Already have an account?</span> <a href="/login">Sign in</a> </p>
+	 	</div>
+	 	<div class="background">
+	 		<img src="{{ url_for('static',filename='img/back1.jfif') }}" width="870px">
+	 	</div>
+	 </div>
+	 	<footer class="card-footer">
+	 		<div class="footer1">
+	 			<div class="proj">
+	 				<h2 class="text-uppercase">Project</h2>
+	 				<span>Sample text</span>
+	 			</div>		
+	 			<div class="help">
+	 				<h3 class="text-uppercase">Help</h3>
+	 				<span>
+		 				<a href="#"><span>Privacy Policy</span></a>
+		 				<a href="#"><span>Terms and conditions</span></a>
+	 				</span>
+	 			</div>
+	 		</div>
+	 		<div class="copyright" align="center">
+	 			<span>Copyright © 2021. Your company name  All rights reserved</span>
+	 		</div>
+	 	</footer>
+	 	<script type="text/javascript">
+	 		$('body').on('click', '.p-c1', function(){
+				if ($('#NewInputPassword1').attr('type') == 'password'){
+				
+					$('#NewInputPassword1').attr('type', 'text');
+				} else {
+				
+					$('#NewInputPassword1').attr('type', 'password');
+				}
+				return false;
+			});
+			$('body').on('click', '.p-c2', function(){
+				if ($('#NewInputPassword2').attr('type') == 'password'){
+				
+					$('#NewInputPassword2').attr('type', 'text');
+				} else {
+				
+					$('#NewInputPassword2').attr('type', 'password');
+				}
+				return false;
+			});
+	 	</script>
+</body>
+</html>

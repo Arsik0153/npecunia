@@ -1,0 +1,288 @@
+		:root {
+			--color-1-gray: #EEEDF0;
+			--color-2-yellow: #FAB135;
+			--color-3-orange: #db9726;
+			--color-4-brown: #4F2F16;
+		}
+		@keyframes fadeIn {
+			   0% {
+			      opacity: 0;
+			      transform: translateY(-20px);
+			   }
+			   100% {
+			      opacity: 1;
+			      transform: translateY(0);
+			   }
+			}
+         
+         .fadeIn {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+         } 
+      html,body {
+			height: 100%;
+		}
+		body {
+			background: var(--color-1-gray);
+			transition: background 0.6s;
+			display: flex;
+  			flex-direction: column;
+		}
+
+		.nav {
+			background: white;
+			width: 100%;
+			display: flex;
+			-webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+		}
+
+		.navbar {
+			margin: auto 3%;
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+		}
+
+		.nav a,
+		.nav span {
+			color: var(--color-4-brown);
+			text-decoration: none;
+		}
+
+		.logo {
+			color: var(--color-2-yellow)!important;
+			text-decoration: none;
+			font-family: 'Raleway', sans-serif;
+			top: 10px;
+			font-size: 40px;
+			font-weight: bold;
+			line-height: 48px;
+			right: 80%;
+		}
+
+		#my-nav {
+			margin: 0 auto;
+			position: relative;
+			
+		}
+
+		.dropdown {
+			position: relative;
+			display: inline-block;
+			border: none;	
+			width: 100%;
+		}
+
+		.dropbtn {
+			background: transparent;
+			color: var(--color-4-brown);
+			border: none;
+			transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background: #dfdde3;
+			min-width: 200px;
+			text-align: left;
+			padding-left: 5px;
+			z-index: 1;
+		}
+
+		.dropdown-content a {
+			color: var(--color-4-brown);
+			padding: 6px 10px;
+			text-decoration: none;
+			display: block;
+			font-size: 18px;
+		}
+
+		.dropdown-content a:hover {
+			background-color: #f0eff2;
+			color: var(--color-2-yellow);
+		}
+
+		.nav-item:hover .dropdown-content {
+			display: block;
+		}
+
+		#my-nav .nav-item:hover .nav-link,
+		#my-nav .nav-item:hover .dropbtn {
+			background: #dfdde3;
+			color: var(--color-2-yellow);
+		}
+
+		.nav-item:hover #faq {
+			text-decoration-line: underline;
+		}
+		.navbar .form-control {
+			margin-top: 2%;
+			height: 30px!important;
+			width: 200px;
+		}
+		#my-nav div {
+			font-family: 'Raleway', sans-serif;
+			font-style: normal;
+			font-size: 18px;
+			line-height: 36px;
+			
+		}
+
+		.nav i {
+			color: var(--color-4-brown)!important;
+			transition: all 0.2s;
+		}
+		
+		input {
+			font-family: 'Raleway', sans-serif;
+		}
+		.nav-item:hover i {
+			color: var(--color-2-yellow)!important;
+		}
+		#my-nav2 .nav-item:hover .nav-link,
+		#my-nav2 .nav-item:hover .dropbtn {
+			background: transparent;
+		}
+		.navbar-names {
+			font-size: 20px;
+			margin-bottom: 0;
+			line-height: 2;
+		}
+		#arrowTop {
+		font-size: 50px;
+	     color: var(--color-4-brown);
+	      position: fixed;
+	      display: none;
+	     bottom: 5%;
+	      left: 2%;
+	      cursor: pointer;
+	      z-index: 40000;
+	    }
+	   .main {
+	   	display: flex;
+	   	flex: 1 0 auto;
+	   	padding-top: 100px;
+	   	margin: auto 3%;
+	   }
+	   .maininfo {
+	   	margin: auto 15%;
+	   	background: var(--color-1-gray);
+	   	font-family: 'Raleway', sans-serif;
+	   }
+	   .summary {
+	   	font-size: small;
+	   	font-weight: bold;
+	   }
+		   .search {
+		   	width: 100%;
+		   }
+		   hr {
+		   	margin: auto;
+		   	opacity: 1;
+		   	color: #FAB135;
+		   }
+	    .forms {
+	    	display: flex;
+	    	flex-direction: row;
+	    	justify-content: center;
+	    	margin: 3% 0;
+	    }
+	    .searchdiv{
+	    	width: 50%;
+	    }
+	   .buttondiv{
+	   	width: 15%;
+	   }
+	   .btn {
+			height: 46.6px;
+			font-size: 16px;
+			font-weight: 500;
+			border-radius: 0 20px 20px 0;
+			background-color:var(--color-2-yellow);
+			color: var(--color-1-gray);
+			border:none;
+	   }
+	   .btn:hover {
+			background-color:#ffd182;
+			color: white;
+		}
+		.coin {
+			border-radius: 20px 0 0 20px;
+		}
+	   footer {
+			font-family: 'Raleway', sans-serif;
+			color: var(--color-1-gray);
+			flex-shrink: 0;
+		}
+		footer a {
+			text-decoration: none;
+			color: var(--color-1-gray);
+		}
+		footer a:hover {
+			color: white;
+			text-decoration: none;
+		}
+		.footer1 {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			padding: 1% 10% 2%;
+			background: var(--color-3-orange);
+		}
+		.footer1 span {
+			font-size: 15px;
+		}
+		.footer1 h2 {
+			font-weight: bold;
+			font-size: 25px;
+		}
+		.footer1 h3 {
+			font-weight: bold;
+			font-size: 17px;
+		}
+
+		.help a {
+			display: block;
+			margin: 5% 0px;
+		}
+		.copyright {
+			height: 55px;
+			font-family: 'Raleway', sans-serif;
+			background: var(--color-1-gray);
+
+		}
+		.copyright span {
+			line-height: 55px;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 15px;
+			color: #3F3641;
+		}
+	@media (max-width: 568px) {
+		h1 {
+         font-size: large;
+      }
+      .footer1 {
+		    display: flex;
+		    flex-direction: column;
+		    text-align: center;
+		}
+      .copyright span {
+         font-size: 10px;
+      }
+      .forms {
+      	flex-direction: column;
+      }
+      .searchdiv, .buttondiv{
+	    	width: 100%;
+	    	margin: 2% 0;
+	   }
+	   .btn, .coin {
+	   	border-radius: 10px;
+	   }
+	}

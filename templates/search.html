@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/883d5d0999.js" crossorigin="anonymous"></script>	
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	<link rel="icon" href="{{ url_for('static',filename='img/coin.png') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+	<title>NPecunia</title>
+</head>
+<body>
+	<header class="header">
+			<div class="nav fixed-top fadeIn">
+			<div class="navbar navbar-expand-md">
+				<a href="index.html" class="mainpage">
+				<span class='logo text-uppercase'>NPecunia</span>
+				</a>
+					 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+					      <i class="fas fa-bars"></i>
+					    </button>
+					<div id="my-nav" class="collapse navbar-collapse">
+						<div class="navbar-nav mx-auto text-uppercase">
+							<div class="nav-item active">
+								<div class="dropdown">
+									<a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
+										<button class="dropbtn">Exclusives</button>
+										<div class="dropdown-content">
+											<a href="#">Example</a>
+											<a href="#">Example</a>
+											<a href="#">Example</a>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="nav-item">
+								<div class="dropdown">
+									<a class="nav-link"  href="#" tabindex="-1" aria-disabled="true">
+										<button class="dropbtn">Market Cap</button>
+										<div class="dropdown-content">
+											<a href="#">Example</a>
+											<a href="#">Example</a>
+											<a href="#">Example</a>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					<div id="my-nav2" class="navbar-nav mx-auto">
+							<div class='nav-item'>
+							  <a class='nav-link' title="Sign In" id="signin" href='/logout' tabindex='-1' aria-disabled='true'>
+									<i class='fas fa-sign-in-alt'></i>
+								</a>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		 <div id="arrowTop">
+		  <i class="far fa-arrow-alt-circle-up"></i>
+		  </div>
+		  </header>
+		  <div class="main d-flex flex-column">
+		  	<form class="search" method="GET" action="/search">
+			  <div class="forms">
+			  	<div class="searchdiv">
+			    <input name="q" type="text" class="form-control coin" id="Search" aria-describedby="SearchHelp" required placeholder="Search for coin" onfocus="this.placeholder=''" onblur="this.placeholder='Search for coin'">
+			    <small id="searchHelp" class="form-text text-muted">e.g. bitcoin, ethereum and etc.</small>
+			    </div>
+			    <div class="buttondiv">
+			   <button type="submit" class="btn form-control">SEARCH</button>
+			   </div>
+			   </div>
+			</form>
+			<div class="maininfo">
+			{% for item in payload %}
+				<div>
+					<div>
+						<p><h3>{{item['heading']}}</h3>
+						{{ item['paragraph'] }}</p>
+						<p class="summary">
+							{{ item['summary'] }}
+						</p>
+					</div>
+					<hr align="center" width="100%" size="5"/>
+				</div>
+			{% endfor %}
+		  </div>
+		  </div>
+		  	 	<footer>
+	 		<div class="footer1">
+	 			<div class="proj">
+	 				<h2 class="text-uppercase">Project</h2>
+	 				<span>Sample text</span>
+	 			</div>		
+	 			<div class="help">
+	 				<h3 class="text-uppercase">Help</h3>
+	 				<span>
+		 				<a href="#"><span>Privacy Policy</span></a>
+		 				<a href="#"><span>Terms and conditions</span></a>
+	 				</span>
+	 			</div>
+	 		</div>
+	 		<div class="copyright" align="center">
+	 			<span>Copyright © 2021. Your company name  All rights reserved</span>
+	 		</div>
+	 	</footer>
+		  <script type="text/javascript">
+		    $(window).scroll(function() {
+		    if ($(this).scrollTop() >= 50) {        
+		        $('#arrowTop').fadeIn(200);
+		    }
+		    else { 
+		        $('#arrowTop').fadeOut(200); 
+		    }
+			});
+			$('#arrowTop').click(function() {      
+			    $('body,html').animate({scrollTop : 0}, 0);
+			});
+		  </script>
+</body>
+</html>
